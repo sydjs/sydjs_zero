@@ -30,6 +30,8 @@
 
       TTRL.QUESTION = QUIZ[tag][0];
       TTRL.ANSWER = QUIZ[tag][1];
+
+      console.log(TTRL.ANSWER);
     },
     search: function () {
       // set the question we're at by reading a ? or # value from the URL
