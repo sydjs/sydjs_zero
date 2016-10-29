@@ -6,7 +6,7 @@
       }
     },
     listen: function () {
-      document.querySelector("#console").addEventListener("blur", this.validate.console);
+      document.querySelector("#console").addEventListener("blur", TTRL.validate.console);
     },
     init: function () {
       this.listen();
