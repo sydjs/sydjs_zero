@@ -7,14 +7,12 @@
         // console.log(TTRL.validate.removeHighlight(event.target.innerHTML));
         var answer = TTRL.validate.removeHighlight(event.target.innerHTML);
 
-        console.log(answer);
-
         TTRL.validate.validation(answer);
       },
       removeHighlight: function (innerHTML) {
         return innerHTML.replace(/<[^>]*>/g, '')
-               .replace(/\s{2,}/g, ' ')
-               .trim();
+          .replace(/\s{2,}/g, ' ')
+          .trim();
       },
       validation: function (answer) {
         var correct = false;
