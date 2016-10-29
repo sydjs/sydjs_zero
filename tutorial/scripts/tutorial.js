@@ -1,6 +1,6 @@
 (function(){
   var TTRL = {
-    valdate: {
+    validate: {
       console: function (element) {
         alert(element.innerHTML);
       }
