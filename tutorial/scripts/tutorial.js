@@ -7,6 +7,7 @@
         // console.log(TTRL.validate.removeHighlight(event.target.innerHTML));
         var answer = TTRL.validate.removeHighlight(event.target.innerHTML);
 
+        console.log("console");
         TTRL.validate.validation(answer);
       },
       removeHighlight: function (innerHTML) {
