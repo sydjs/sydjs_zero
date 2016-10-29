@@ -6,6 +6,9 @@
       console: function (event) {
         // console.log(TTRL.validate.removeHighlight(event.target.innerHTML));
         var answer = TTRL.validate.removeHighlight(event.target.innerHTML);
+
+        console.log(answer);
+
         TTRL.validate.validation(answer);
       },
       removeHighlight: function (innerHTML) {
@@ -17,11 +20,16 @@
         var correct = false;
 
         if (answer === TTRL.ANSWER) {
-          // turn on buttons
-          console.log("SUCCESS");
+          correct = true;
         } else {
           console.log("Not quite");
         }
+
+        if (correct) {
+          // turn on buttons
+          console.log("SUCCESS");
+        }
+
       },
     },
     listen: function () {
