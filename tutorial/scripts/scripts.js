@@ -7,7 +7,7 @@
 
     for (var resource in resources) {
       var element = document.createElement("script");
-      script.href = source + resources[resource];
-      head.appendChild(script);
+      element.href = source + resources[resource];
+      head.appendChild(element);
     }
 }());
