@@ -7,9 +7,10 @@
         // console.log(TTRL.validate.removeHighlight(event.target.innerHTML));
         var answer = TTRL.validate.removeHighlight(event.target.innerHTML);
 
-        setTimeout(function(){
-          TTRL.validate.validation(answer);
-        }, 10);
+        console.log("validating.");
+        console.log("validating..");
+        console.log("validating...");
+        TTRL.validate.validation(answer);
       },
       removeHighlight: function (innerHTML) {
         return innerHTML.replace(/<[^>]*>/g, '')
