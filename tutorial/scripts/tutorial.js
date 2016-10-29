@@ -2,15 +2,30 @@
   var TTRL = {
     ANSWER: null,
     QUESTION: null,
+    RESPONSE: null,
+    PROCESSING: 0,
     validate: {
       console: function (event) {
         // console.log(TTRL.validate.removeHighlight(event.target.innerHTML));
-        var answer = TTRL.validate.removeHighlight(event.target.innerHTML);
+        TTRL.RESPONSE = TTRL.validate.removeHighlight(event.target.innerHTML);
 
-        console.log("validating.");
-        console.log("validating..");
-        console.log("validating...");
-        TTRL.validate.validation(answer);
+        TTRL.validate.processing();
+      },
+      processing: function (innerHTML) {
+        if (TTRL.PROCESSING < 4) {
+          TTRL.PROCESSING += 1;
+          var ellipsis = "...";
+          var progress = "validating" + ellipsis.substring(0, TTRL.PROCESSING);
+
+          console.clear();
+          console.log(progress);
+
+          setTimeout(TTRL.validate.processing, 500);
+
+        } else {
+          TTRL.PROCESSING = 0;
+          TTRL.validate.validation(TTRL.RESPONSE);
+        }
       },
       removeHighlight: function (innerHTML) {
         return innerHTML.replace(/<[^>]*>/g, '')
