@@ -1,0 +1,22 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 1rem;
+}
+
+code {
+  outline: none;
+}
+
+nav {
+  bottom: 1rem;
+  left: 1rem;
+  position: fixed;
+  right: 1rem;
+}
+
+nav button:last-child {
+  float: right;
+}
