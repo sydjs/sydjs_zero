@@ -1,8 +1,8 @@
 (function(){
   var TTRL = {
     validate: {
-      console: function (element) {
-        alert(element.innerHTML);
+      console: function (event) {
+        alert(event.target.innerHTML);
       }
     },
     listen: function () {
