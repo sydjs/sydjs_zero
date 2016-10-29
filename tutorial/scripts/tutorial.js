@@ -11,8 +11,10 @@
     init: function () {
       function loaded() {
         TTRL.listen();
+        console.timeEnd('loaded()');
       }
 
+      console.time('loaded()');
       document.addEventListener('DOMContentLoaded', loaded, false);
     }
   };
