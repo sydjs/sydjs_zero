@@ -2,7 +2,7 @@
   var TTRL = {
     validate: {
       console: function (event) {
-        alert(event.target.innerHTML);
+        console.log(event.target.innerHTML);
       }
     },
     listen: function () {
