@@ -2,6 +2,7 @@
     var resources = [
       "vendor/prismjs/prism.min.js",
       "vendor/micro/micro.min.js",
+      "scripts/quiz.js",
       "scripts/tutorial.js",
     ];
     var head = document.head;
