@@ -5,7 +5,7 @@
         console.log(TTRL.validate.removeHighlight(event.target.innerHTML));
       },
       removeHighlight: function (innerHTML) {
-        return innerHTML.replace(/<[^>]*>/g, ' ')
+        return innerHTML.replace(/<[^>]*>/g, '')
                .replace(/\s{2,}/g, ' ')
                .trim();
       }
