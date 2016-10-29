@@ -11,8 +11,6 @@
     for (var resource in resources) {
       var element = document.createElement("script");
       element.src = source + resources[resource];
-
-      console.log(element.src);
       head.appendChild(element);
     }
 }());
