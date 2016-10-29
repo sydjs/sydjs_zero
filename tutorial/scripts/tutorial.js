@@ -9,7 +9,11 @@
       document.querySelector("#console").addEventListener("blur", TTRL.validate.console);
     },
     init: function () {
-      this.listen();
+      function loaded() {
+        TTRL.listen();
+      }
+
+      document.addEventListener('DOMContentLoaded', loaded, false);
     }
   };
 
