@@ -17,7 +17,7 @@
           var ellipsis = "...";
           var progress = "validating" + ellipsis.substring(0, TTRL.PROCESSING);
 
-          TTL.logger(progress, true);
+          TTRL.logger(progress, true);
 
           setTimeout(TTRL.validate.processing, 500);
 
@@ -37,12 +37,12 @@
         if (answer === TTRL.ANSWER) {
           correct = true;
         } else {
-          console.log("Not quite");
+          TTRL.logger("Not quite");
         }
 
         if (correct) {
           // turn on buttons
-          console.log("SUCCESS");
+          TTRL.logger("SUCCESS");
         }
 
       },
