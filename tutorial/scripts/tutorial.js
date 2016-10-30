@@ -52,16 +52,15 @@
       document.querySelector("#console").addEventListener("blur", TTRL.validate.console);
     },
     loaded: function () {
-      console.log(window.asyncLoaded);
+      if (window.asyncLoaded) {
+        TTRL.listen();
+        TTRL.search();
+        TTRL.quiz("q0");
+        console.timeEnd('loaded()');
+      } else {
+        setTimeout(TTRL.loaded,100);
+      }
 
-
-      TTRL.loaded();
-      TTRL.listen();
-      TTRL.search();
-      TTRL.quiz("q0");
-
-
-      console.timeEnd('loaded()');
     },
     quiz: function (tag) {
       // receive a ?string or #tag, eventually
