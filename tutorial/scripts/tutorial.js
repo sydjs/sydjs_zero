@@ -17,7 +17,7 @@
           var ellipsis = "...";
           var progress = "validating" + ellipsis.substring(0, TTRL.PROCESSING);
 
-          console.clear();
+          // console.clear();
           console.log(progress);
 
           setTimeout(TTRL.validate.processing, 500);
