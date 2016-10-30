@@ -9,19 +9,18 @@
     var head = document.head;
     var source = "https://sydjs.github.io/sydjs_zero/tutorial/";
     var registered = 0;
+    var loaded = function () {
+      registered += 1;
+
+      if (registered === resources.length) {
+        window.asyncLoaded = true;
+      }
+    };
 
     for (var resource in resources) {
       var element = document.createElement("script");
       element.src = source + resources[resource];
-      element.onload = function(){
-        registered += 1;
-
-        console.log("asyncLoaded += 1 => " + registered);
-
-        if (registered === resources.length) {
-          window.asyncLoaded = true;
-        }
-      };
+      element.onload = loaded;
       head.appendChild(element);
     }
 }());
