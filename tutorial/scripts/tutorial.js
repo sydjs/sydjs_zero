@@ -55,7 +55,7 @@
         TTRL.listen();
         TTRL.search();
         TTRL.quiz("q0");
-        TTL.logger(true, true),
+        TTRL.logger(true, true),
         console.timeEnd('loaded()');
       } else {
         console.timeEnd('still loading');
