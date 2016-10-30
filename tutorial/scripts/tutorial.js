@@ -12,12 +12,12 @@
         TTRL.validate.processing();
       },
       processing: function (innerHTML) {
-        if (TTRL.PROCESSING < 4) {
+        if (TTRL.PROCESSING < 3) {
           TTRL.PROCESSING += 1;
           var ellipsis = "...";
           var progress = "validating" + ellipsis.substring(0, TTRL.PROCESSING);
 
-          // console.clear();
+          console.clear();
           console.log(progress);
 
           setTimeout(TTRL.validate.processing, 500);
@@ -58,9 +58,9 @@
         TTRL.quiz("q0");
         console.timeEnd('loaded()');
       } else {
+        console.timeEnd('still loading');
         setTimeout(TTRL.loaded,100);
       }
-
     },
     quiz: function (tag) {
       // receive a ?string or #tag, eventually
