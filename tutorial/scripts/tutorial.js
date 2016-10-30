@@ -17,8 +17,7 @@
           var ellipsis = "...";
           var progress = "validating" + ellipsis.substring(0, TTRL.PROCESSING);
 
-          console.clear();
-          console.log(progress);
+          TTL.logger(progress, true);
 
           setTimeout(TTRL.validate.processing, 500);
 
@@ -56,11 +55,17 @@
         TTRL.listen();
         TTRL.search();
         TTRL.quiz("q0");
+        TTL.logger(true, true),
         console.timeEnd('loaded()');
       } else {
         console.timeEnd('still loading');
         setTimeout(TTRL.loaded,100);
       }
+    },
+    logger: function (message, clear) {
+      clear && console.clear();
+
+      console.log(message);
     },
     quiz: function (tag) {
       // receive a ?string or #tag, eventually
