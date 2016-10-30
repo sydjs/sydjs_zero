@@ -1,5 +1,6 @@
 (function(){
   var TTRL = {
+    CURRENT: 0,
     ANSWER: null,
     QUESTION: null,
     RESPONSE: null,
@@ -47,20 +48,11 @@
 
       },
     },
+    current: function (current) {
+      TTRL.CURRENT = current || 0;
+    },
     listen: function () {
       document.querySelector("#console").addEventListener("blur", TTRL.validate.console);
-    },
-    loaded: function () {
-      if (window.asyncLoaded) {
-        TTRL.listen();
-        TTRL.search();
-        TTRL.quiz("q0");
-        TTRL.logger("", true),
-        console.timeEnd('loaded()');
-      } else {
-        console.timeEnd('still loading');
-        setTimeout(TTRL.loaded,100);
-      }
     },
     logger: function (message, clear) {
       clear && console.clear();
@@ -68,12 +60,31 @@
     },
     quiz: function (tag) {
       // receive a ?string or #tag, eventually
-
-      TTRL.QUESTION = QUIZ[tag][0];
-      TTRL.ANSWER = QUIZ[tag][1];
+      var current = tag || TTRL.CURRENT;
+      TTRL.QUESTION = QUIZ[current][0];
+      TTRL.ANSWER = QUIZ[current][1];
     },
     search: function () {
+      if (window.location.search) {
+        var query = window.location.search .substring(1);
+        query = query.replace("\&amp;\gi", "&");
+
+
+
+
+      }
       // set the question we're at by reading a ? or # value from the URL
+    },
+    loaded: function () {
+      if (window.asyncLoaded) {
+        TTRL.listen();
+        TTRL.search();
+        TTRL.quiz();
+        TTRL.logger("", true),
+        console.timeEnd('loaded()');
+      } else {
+        setTimeout(TTRL.loaded,100);
+      }
     },
     init: function () {
       console.time('loaded()');
