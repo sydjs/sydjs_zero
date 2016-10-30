@@ -55,7 +55,7 @@
         TTRL.listen();
         TTRL.search();
         TTRL.quiz("q0");
-        TTRL.logger(true, true),
+        TTRL.logger("", true),
         console.timeEnd('loaded()');
       } else {
         console.timeEnd('still loading');
@@ -64,8 +64,7 @@
     },
     logger: function (message, clear) {
       clear && console.clear();
-
-      console.log(message);
+      message && console.log(message);
     },
     quiz: function (tag) {
       // receive a ?string or #tag, eventually
