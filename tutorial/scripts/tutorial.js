@@ -51,6 +51,18 @@
     listen: function () {
       document.querySelector("#console").addEventListener("blur", TTRL.validate.console);
     },
+    loaded: function () {
+      console.log(window.asyncLoaded);
+
+
+      TTRL.loaded();
+      TTRL.listen();
+      TTRL.search();
+      TTRL.quiz("q0");
+
+
+      console.timeEnd('loaded()');
+    },
     quiz: function (tag) {
       // receive a ?string or #tag, eventually
 
@@ -61,14 +73,8 @@
       // set the question we're at by reading a ? or # value from the URL
     },
     init: function () {
-      function loaded() {
-        TTRL.listen();
-        TTRL.search();
-        TTRL.quiz("q0");
-      }
-
       console.time('loaded()');
-      document.addEventListener('DOMContentLoaded', loaded, false);
+      document.addEventListener('DOMContentLoaded', TTRL.loaded, false);
     }
   };
 
