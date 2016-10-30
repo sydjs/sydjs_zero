@@ -9,17 +9,17 @@
 
 /* =====   ===== */
 code[class*="language-"].prism-cb {
-	color: #fff;
-	text-shadow: 0 1px 1px #000;
-	font-family: Menlo, Monaco, "Courier New", monospace;
-	direction: ltr;
-	text-align: left;
-	word-spacing: normal;
-	white-space: pre;
-	word-wrap: normal;
-	line-height: 1.4;
-	background: none;
+	background: #222;
 	border: 0;
+	color: #fff;
+	direction: ltr;
+	font-family: Menlo, Monaco, "Courier New", monospace;
+	line-height: 1.4;
+	text-align: left;
+	text-shadow: 0 1px 1px #000;
+	white-space: pre;
+	word-spacing: normal;
+	word-wrap: normal;
 
 	-moz-tab-size: 4;
 	-o-tab-size: 4;
@@ -42,21 +42,17 @@ pre[class*="language-"] code.prism-cb {
 
 /* Code blocks */
 pre[class*="language-"] {
-	padding: 15px;
+  border-radius: 8px;
 	margin: 1em 0;
 	overflow: auto;
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
-	border-radius: 8px;
+  padding: 15px;
 }
 
 /* Inline code */
 :not(pre) > code[class*="language-"].prism-cb {
+  border-radius: 3px;
+  line-height: 1;
 	padding: 5px 10px;
-	line-height: 1;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	border-radius: 3px;
 }
 
 .prism-cb .token.comment,
@@ -124,43 +120,41 @@ pre[class*="language-"] {
 
 /* Line highlight plugin */
 pre[data-line].prism-cb {
+  padding: 1em 0 1em 3em;
 	position: relative;
-	padding: 1em 0 1em 3em;
 }
 
 .prism-cb .line-highlight {
-	position: absolute;
-	left: 0;
-	right: 0;
-	margin-top: 1em; /* Same as .prism's padding-top */
-	background: rgba(255,255,255,.2);
-	pointer-events: none;
+  background: rgba(255,255,255,.2);
+  left: 0;
 	line-height: inherit;
+	margin-top: 1em; /* Same as .prism's padding-top */
+	pointer-events: none;
+	position: absolute;
+	right: 0;
 	white-space: pre;
 }
 
 .prism-cb .line-highlight:before,
 .prism-cb .line-highlight[data-end]:after {
-    content: attr(data-start);
-    position: absolute;
-    top: .3em;
-    left: .6em;
-    min-width: 1em;
-    padding: 0 .5em;
-    background-color: rgba(255,255,255,.3);
-    color: #fff;
-    font: bold 65%/1.5 sans-serif;
-    text-align: center;
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-    border-radius: 8px;
-    text-shadow: none;
+  background-color: rgba(255,255,255,.3);
+  border-radius: 8px;
+  color: #fff;
+  content: attr(data-start);
+  font: bold 65%/1.5 sans-serif;
+  top: .3em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  position: absolute;
+  text-align: center;
+  text-shadow: none;
 }
 
 .prism-cb .line-highlight[data-end]:after {
-    content: attr(data-end);
-    top: auto;
-    bottom: .4em;
+  bottom: .4em;
+  content: attr(data-end);
+  top: auto;
 }
 
 /* for line numbers */
@@ -169,6 +163,6 @@ pre[data-line].prism-cb {
 }
 
 .prism-cb .line-numbers-rows span {
-    padding-right: 10px;
-    border-right: 3px #d9d336 solid;
+  border-right: 3px #d9d336 solid;
+  padding-right: 10px;
 }
