@@ -1,4 +1,6 @@
 (function(){
+    console.time('loaded()');
+
     var body = document.body;
     var resources = [
       "vendor/prismjs/prism.min.js",
@@ -18,7 +20,6 @@
     }
 
     var loaded = function () {
-      window.asyncLoaded = true;
       append(initialise);
     };
 
