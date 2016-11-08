@@ -18,18 +18,27 @@
         TTRL.QUESTION = TTRL.QUIZ[current][0];
         TTRL.ANSWER = TTRL.QUIZ[current][1];
 
-        console.log(TTRL.ANSWER)
+        document.querySelector("#message").innerHTML = TTRL.ANSWER;
+      },
+    },
+    console: {
+      keyup: function (event) {
+        var console = document.querySelector("#console");
+        var input = console.innerHTML;
 
+        console.innerHTML = TTRL.console.removeHighlight(input);
+        // TTRL.console.prism(console);
+      },
+      prism: function (element) {
+        Prism.highlightElement(element);
+      },
+      removeHighlight: function (innerHTML) {
+        return innerHTML.replace(/<[^>]*>/g, '')
+          .replace(/\s{2,}/g, ' ')
+          .trim();
       },
     },
     validate: {
-      console: function (event) {
-        TTRL.RESPONSE = TTRL.validate.removeHighlight(event.target.innerHTML);
-
-        console.log(event)
-
-        TTRL.validate.processing();
-      },
       processing: function (innerHTML) {
         if (TTRL.PROCESSING < 3) {
           TTRL.PROCESSING += 1;
@@ -38,29 +47,32 @@
 
           TTRL.logger(progress, true);
 
-          setTimeout(TTRL.validate.processing, 500);
+          setTimeout(TTRL.validate.processing, 250);
 
         } else {
           TTRL.PROCESSING = 0;
-          TTRL.validate.validation(TTRL.RESPONSE);
+          TTRL.validate.validation();
         }
       },
-      removeHighlight: function (innerHTML) {
-        return innerHTML.replace(/<[^>]*>/g, '')
-          .replace(/\s{2,}/g, ' ')
-          .trim();
+      success: function () {
+        TTRL.console.prism(document.querySelector("#console"));
+      },
+      test: function (event) {
+        var answer = document.querySelector("#console").innerHTML;
+        TTRL.RESPONSE = TTRL.console.removeHighlight(answer);
+        TTRL.validate.processing();
       },
       validation: function (answer) {
         var correct = false;
 
-        if (answer === TTRL.ANSWER) {
+        if (TTRL.RESPONSE === TTRL.ANSWER) {
           correct = true;
         } else {
           TTRL.logger("Not quite");
         }
 
         if (correct) {
-          // turn on buttons
+          TTRL.console.prism(document.querySelector("#console"));
           TTRL.logger("SUCCESS");
         }
 
@@ -79,8 +91,9 @@
       message && console.log(message);
     },
     listen: function () {
-      console.log("listening");
-      document.querySelector("#console").addEventListener("blur", TTRL.validate.console);
+      // document.querySelector("#console").addEventListener("blur", TTRL.validate.input);
+      // document.querySelector("#console").addEventListener("keyup", TTRL.console.keyup);
+      document.querySelector("#test").addEventListener("click", TTRL.validate.test);
     },
     search: function () {
       if (window.location.search) {

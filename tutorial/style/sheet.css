@@ -6,6 +6,17 @@ body {
   margin: 1rem;
 }
 
+section {
+  background-color: #F5F2F0;
+  padding: 1rem;
+}
+
+section > pre:last-child {
+  border: .1rem dashed;
+  margin-top: -1rem;
+  border-radius: .4rem
+}
+
 code {
   outline: none;
 }
