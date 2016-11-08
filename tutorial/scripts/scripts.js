@@ -46,14 +46,16 @@
       }
     }
 
-    var defering = null;
+    var deferring = null;
     var defer = function () {
       if (document && document.body) {
         onload();
       } else {
-        console.log("defering -> ", defering);
-        defering = setTimeout(defer, 250);
+        console.log("deferring -> ", deferring);
+        deferring = setTimeout(defer, 250);
       }
     }
+
+    defer();
 
 }());
