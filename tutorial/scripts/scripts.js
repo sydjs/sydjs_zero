@@ -31,20 +31,29 @@
       }
     };
 
-    var source = sources();
+    var onload = function () {
+      var source = sources();
 
-    console.log(source)
+      var append = function (src) {
+        var element = document.createElement("script");
+        element.src = source + src;
+        element.onload = register;
+        body.appendChild(element);
+      }
 
-    var body = document.querySelector("body");
-
-    var append = function (src) {
-      var element = document.createElement("script");
-      element.src = source + src;
-      element.onload = register;
-      body.appendChild(element);
+      for (var resource in resources) {
+        append(resources[resource]);
+      }
     }
 
-    for (var resource in resources) {
-      append(resources[resource]);
+    var defering = null;
+    var defer = function () {
+      if (document && document.body) {
+        onload();
+      } else {
+        console.log("defering -> ", defering);
+        defering = setTimeout(defer, 250);
+      }
     }
+
 }());
