@@ -1,7 +1,6 @@
 (function(){
     console.time('loaded()');
 
-    var body = document.body;
     var resources = [
       "vendor/prismjs/prism.min.js",
       "vendor/micro/micro.min.js",
@@ -33,6 +32,11 @@
     };
 
     var source = sources();
+
+    console.log(source)
+
+    var body = document.querySelector("body");
+
     var append = function (src) {
       var element = document.createElement("script");
       element.src = source + src;
