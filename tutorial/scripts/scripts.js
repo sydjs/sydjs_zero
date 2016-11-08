@@ -46,9 +46,11 @@
       }
     }
 
+    var body = null;
     var deferring = null;
     var defer = function () {
       if (document && document.body) {
+        body = document.body;
         onload();
       } else {
         console.log("deferring -> ", deferring);
