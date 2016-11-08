@@ -18,21 +18,20 @@
       return uris[window.location.protocol.substring(0, 4)];
     }
 
-    var loaded = function () {
-      append(initialise);
-    };
-
-    var registered = 0;
-    var register = function () {
-      registered += 1;
-
-      if (registered === resources.length) {
-        loaded();
-      }
-    };
-
     var onload = function () {
       var source = sources();
+      var loaded = function () {
+        append(initialise);
+      };
+
+      var registered = 0;
+      var register = function () {
+        registered += 1;
+
+        if (registered === resources.length) {
+          loaded();
+        }
+      };
 
       var append = function (src) {
         var element = document.createElement("script");
