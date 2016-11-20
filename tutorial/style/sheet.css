@@ -40,10 +40,15 @@ section > pre {
   padding: 0 !important;
 }
 
+pre.prism-cb > pre[class*="language-"] {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
 section > pre code {
   cursor: help;
   display: block;
-  padding: 1.5rem !important;
+  padding: 1.5rem 2rem !important;
   width: 100%;
 }
 
@@ -51,9 +56,9 @@ section > pre code:focus {
   cursor: none;
 }
 
-section code::before {
+section > pre code::before {
   color: gray;
-  content: '1';
-  left: -1rem;
-  position: relative;
+  content: attr(data-before);
+  left: 2rem;
+  position: absolute;
 }
