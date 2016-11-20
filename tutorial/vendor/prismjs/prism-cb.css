@@ -1,0 +1,169 @@
+/*
+ * Based on Plugin: Syntax Highlighter CB
+ * Plugin URI: http://wp.tutsplus.com/tutorials/plugins/adding-a-syntax-highlighter-shortcode-using-prism-js
+ * Description: Highlight your code snippets with an easy to use shortcode based on Lea Verou's Prism.js.
+ * Version: 1.0.0
+ * Author: c.bavota
+ * Author URI: http://bavotasan.comhttp://wp.tutsplus.com/tutorials/plugins/adding-a-syntax-highlighter-shortcode-using-prism-js/ */
+/* http://cbavota.bitbucket.org/syntax-highlighter/  */
+
+/* =====   ===== */
+.prism-cb code[class*="language-"] {
+	background: #222;
+	border: 0;
+	color: #fff;
+	direction: ltr;
+	font-family: Menlo, Monaco, "Courier New", monospace;
+	line-height: 1.4;
+	text-align: left;
+	text-shadow: 0 1px 1px #000;
+	white-space: pre;
+	word-spacing: normal;
+	word-wrap: normal;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+.prism-cb pre[class*="language-"] code {
+    float: left;
+    padding: 0 15px 0 0;
+}
+
+:not(pre) > code[class*="language-"].prism-cb  {
+	background: #222;
+}
+
+/* Code blocks */
+.prism-cb pre[class*="language-"] {
+	background: #222;
+  border-radius: 8px;
+	margin: 1em 0;
+	overflow: auto;
+  padding: 15px;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"].prism-cb  {
+  border-radius: 3px;
+  line-height: 1;
+	padding: 5px 10px;
+}
+
+.prism-cb .token.comment,
+.prism-cb .token.prolog,
+.prism-cb .token.doctype,
+.prism-cb .token.cdata {
+	color: #797979;
+}
+
+.prism-cb .token.selector,
+.prism-cb .token.operator,
+.prism-cb .token.punctuation {
+	color: #fff;
+}
+
+.prism-cb .token.namespace {
+	opacity: .7;
+}
+
+.prism-cb .token.tag,
+.prism-cb .token.boolean {
+	color: #ffd893;
+}
+
+.prism-cb .token.atrule,
+.prism-cb .token.attr-value,
+.prism-cb .token.hex,
+.prism-cb .token.string {
+	color: #B0C975;
+}
+
+.prism-cb .token.property,
+.prism-cb .token.entity,
+.prism-cb .token.url,
+.prism-cb .token.attr-name,
+.prism-cb .token.keyword {
+	color: #c27628;
+}
+
+.prism-cb .token.regex {
+	color: #9B71C6;
+}
+
+.prism-cb .token.entity {
+	cursor: help;
+}
+
+.prism-cb .token.function,
+.prism-cb .token.constant {
+	color: #e5a638;
+}
+
+.prism-cb .token.variable {
+	color: #fdfba8;
+}
+
+.prism-cb .token.number {
+	color: #8799B0;
+}
+
+.prism-cb .token.important,
+.prism-cb .token.deliminator {
+	color: #E45734;
+}
+
+/* Line highlight plugin */
+pre[data-line].prism-cb {
+  padding: 1em 0 1em 3em;
+	position: relative;
+}
+
+.prism-cb .line-highlight {
+  background: rgba(255,255,255,.2);
+  left: 0;
+	line-height: inherit;
+	margin-top: 1em; /* Same as .prism's padding-top */
+	pointer-events: none;
+	position: absolute;
+	right: 0;
+	white-space: pre;
+}
+
+.prism-cb .line-highlight:before,
+.prism-cb .line-highlight[data-end]:after {
+  background-color: rgba(255,255,255,.3);
+  border-radius: 8px;
+  color: #fff;
+  content: attr(data-start);
+  font: bold 65%/1.5 sans-serif;
+  top: .3em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  position: absolute;
+  text-align: center;
+  text-shadow: none;
+}
+
+.prism-cb .line-highlight[data-end]:after {
+  bottom: .4em;
+  content: attr(data-end);
+  top: auto;
+}
+
+/* for line numbers */
+.prism-cb .line-numbers-rows {
+	margin: 0;
+}
+
+.prism-cb .line-numbers-rows span {
+  border-right: 3px #d9d336 solid;
+  padding-right: 10px;
+}

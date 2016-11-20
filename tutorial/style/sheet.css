@@ -1,0 +1,59 @@
+html {
+  font-size: 125%;/* 62.5% */
+}
+
+body {
+  margin: 1rem;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #F5F2F0;
+  padding: 1rem;
+}
+
+header > pre:last-child {
+  border: .1rem dashed;
+  margin-top: -1rem;
+  border-radius: .4rem
+}
+
+code {
+  outline: none;
+}
+
+nav {
+  bottom: 1rem;
+  left: 1rem;
+  position: fixed;
+  right: 1rem;
+}
+
+nav button:last-child {
+  float: right;
+}
+
+section > pre {
+  padding: 0 !important;
+}
+
+section > pre code {
+  cursor: help;
+  display: block;
+  padding: 1.5rem !important;
+  width: 100%;
+}
+
+section > pre code:focus {
+  cursor: none;
+}
+
+section code::before {
+  color: gray;
+  content: '1';
+  left: -1rem;
+  position: relative;
+}
