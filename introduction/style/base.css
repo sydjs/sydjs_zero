@@ -1,0 +1,48 @@
+html {
+	font-size: 62.5%;
+}
+
+body {
+	background-color: white;
+	color: black;
+	font-family: "Roboto", sans-serif;
+	font-size: 100%;
+}
+
+main {
+	display: block;
+}
+
+nav {
+
+}
+
+ol {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	font-weight: 400;
+}
+
+h2 {
+	font-weight: 400;
+}
+
+h3 {
+	font-weight: 400;
+}
+
+h4 {
+	font-weight: 400;
+}
+
+fieldset {
+	border: none;
+}
+
+legend {
+	display: none;
+}

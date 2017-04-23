@@ -1,0 +1,146 @@
+body {
+	margin-top: 4rem;
+}
+
+nav {
+	opacity: .75;
+	text-align: center;
+}
+
+nav li {
+	border: .1rem solid rgb(56, 121, 217);
+	border-radius: 50%;
+	display: inline-block;
+	padding: .1rem;
+}
+
+nav span {
+	background-color: rgb(56, 121, 217);
+	border-radius: 50%;
+	color: whitesmoke;
+	display: block;
+	font-size: 4rem;
+	height: 8rem;
+	line-height: 2;
+	width: 8rem;
+}
+
+nav li.active {
+	border-color: rgb(208, 49, 49);
+}
+
+nav li.active span {
+	background-color: rgb(208, 49, 49);
+}
+
+nav li:hover {
+	border-color: rgb(208, 49, 49);
+	cursor: pointer;
+}
+
+nav li:hover span {
+	background-color: rgb(208, 49, 49);
+}
+
+main {
+	margin: 0 auto;
+	width: 80%;
+}
+
+section {
+	display: none;
+	overflow: hidden;
+}
+
+section.active {
+	display: block;
+}
+
+section h1 {
+	font-size: 5rem;
+	margin: 2rem 1rem 1rem;
+	text-align: center;
+}
+
+section h2 {
+	float: left;
+	font-size: 5rem;
+	margin: 1rem;
+	width: 50%;
+}
+
+section h2 a {
+	color: rgb(56, 121, 217);
+	display: inline-block;
+	margin-top: 9rem;
+}
+
+section h3 {
+	color: silver;
+	float: left;
+	font-size: 5rem;
+	margin: 1rem;
+	width: 50%;
+}
+
+section h3 strong {
+	color: black;
+	display: block;
+}
+
+section h4 {
+	font-size: 7.5rem;
+	margin-top: 9rem;
+}
+
+section figure {
+	float: left;
+	max-width: 25.6rem;
+	width: 50%;
+}
+
+section figure img {
+	max-width: 100%;
+}
+
+body > footer {
+	margin: 5rem auto;
+	width: 80%;
+}
+
+footer {
+	margin-top: 5rem;
+	overflow: hidden;
+}
+
+footer fieldset {
+	float: left;
+	margin: 0;
+	padding: 0;
+	width: 50%;
+}
+
+footer fieldset:first-child {
+	float: left;
+}
+
+footer fieldset:last-child {
+	float: right;
+	text-align: right;
+}
+
+footer button,
+footer input {
+	background-color: rgb(56, 121, 217);
+	border: none;
+	border-radius: .5rem;
+	color: white;
+	font-size: 2rem;
+	outline: none;
+	padding: 1rem 2rem;
+}
+
+footer button:hover,
+footer input:hover {
+	background-color: rgb(208, 49, 49);
+}

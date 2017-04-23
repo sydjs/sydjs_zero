@@ -22,12 +22,10 @@
       },
     },
     console: {
-      keyup: function (event) {
-        var console = document.querySelector("#console");
-        var input = console.innerHTML;
-
-        console.innerHTML = TTRL.console.removeHighlight(input);
-        // TTRL.console.prism(console);
+      keyed: function (event) {
+        if (event.key === "Enter" || event.key === "Backspace") {
+          TTRL.console.rowNumber();
+        }
       },
       prism: function (element) {
         Prism.highlightElement(element);
@@ -36,6 +34,26 @@
         return innerHTML.replace(/<[^>]*>/g, '')
           .replace(/\s{2,}/g, ' ')
           .trim();
+      },
+      rowNumber: function (direction) {
+        var terminal = document.querySelector("#terminal");
+        var computed = window.getComputedStyle(terminal,null);
+        var height = computed.getPropertyValue("height");
+        var lineheight = computed.getPropertyValue("line-height");
+        var outer = 60;// 2 * 30
+
+        var lines = (parseInt(height, 10) - outer) / parseInt(lineheight, 10);
+        var content;
+
+        for (var i = 0; i < lines; i += 1) {
+          if (i) {
+            content += "\n" + (i + 1);
+          } else {
+            content = 1;
+          }
+        }
+
+        terminal.dataset.before = content;
       },
     },
     validate: {
@@ -55,10 +73,10 @@
         }
       },
       success: function () {
-        TTRL.console.prism(document.querySelector("#console"));
+        TTRL.console.prism(document.querySelector("#terminal"));
       },
       test: function (event) {
-        var answer = document.querySelector("#console").innerHTML;
+        var answer = document.querySelector("#terminal").innerHTML;
         TTRL.RESPONSE = TTRL.console.removeHighlight(answer);
         TTRL.validate.processing();
       },
@@ -72,7 +90,7 @@
         }
 
         if (correct) {
-          TTRL.console.prism(document.querySelector("#console"));
+          TTRL.console.prism(document.querySelector("#terminal"));
           TTRL.logger("SUCCESS");
         }
 
@@ -91,8 +109,8 @@
       message && console.log(message);
     },
     listen: function () {
-      // document.querySelector("#console").addEventListener("blur", TTRL.validate.input);
-      // document.querySelector("#console").addEventListener("keyup", TTRL.console.keyup);
+      document.querySelector("#terminal").addEventListener("keydown", TTRL.console.keyed);
+      document.querySelector("#terminal").addEventListener("keyup", TTRL.console.keyed);
       document.querySelector("#test").addEventListener("click", TTRL.validate.test);
     },
     search: function () {
